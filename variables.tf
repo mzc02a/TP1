@@ -27,3 +27,9 @@ variable "client_count" {
   type        = number
   default     = 3
 }
+
+variable "server_names" {
+  description = "Liste des noms des serveurs clients"
+  type        = list(string)
+  default     = ["app", "api", "db"]
+}

@@ -59,9 +59,9 @@ resource "null_resource" "test_nginx" {
 
 # Conteneur client
 resource "docker_container" "client" {
-  count = var.client_count
+  for_each = toset(var.server_names)
 
-  name  = "client-${count.index}"
+  name  = "server-${each.value}"
   image = docker_image.curl.image_id
 
   depends_on = [docker_container.nginx]
