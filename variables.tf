@@ -21,3 +21,9 @@ variable "internal_port" {
   type        = number
   default     = 80
 }
+
+variable "client_count" {
+  description = "Nombre de conteneurs client"
+  type        = number
+  default     = 3
+}

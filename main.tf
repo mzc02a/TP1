@@ -59,7 +59,9 @@ resource "null_resource" "test_nginx" {
 
 # Conteneur client
 resource "docker_container" "client" {
-  name  = "client"
+  count = var.client_count
+
+  name  = "client-${count.index}"
   image = docker_image.curl.image_id
 
   depends_on = [docker_container.nginx]
